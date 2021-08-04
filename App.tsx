@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 //import axios from 'axios';
 import {io} from 'socket.io-client';
-
 import {View, Text, SafeAreaView, Button} from 'react-native';
 
 const App = () => {
@@ -34,6 +33,7 @@ const App = () => {
 
   useEffect(() => {
     receiveMessage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
