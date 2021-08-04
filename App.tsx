@@ -24,7 +24,7 @@ const App = () => {
   };
 
   const sendMessage = () => {
-    socket.emit('msgToServer', 'at basi');
+    socket.emit('msgToServer', 'Lamp');
   };
 
   const deleteMessage = () => {
@@ -39,8 +39,8 @@ const App = () => {
   return (
     <SafeAreaView>
       <View>
-        {state.map(item => (
-          <Text>{item}</Text>
+        {state.map((item, index) => (
+          <Text key={index}>{item}</Text>
         ))}
       </View>
       <Button title="Add new lamp" onPress={sendMessage} />
