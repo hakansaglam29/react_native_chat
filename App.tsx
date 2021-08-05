@@ -8,7 +8,7 @@ const App = () => {
   //   let response = await axios.get('http://localhost:3000');
   //   console.log('response', response.data);
   // };
-  const socket = io('http://localhost:3000', {
+  const socket = io('http://192.168.2.140:3000', {
     transports: ['websocket'],
     forceNew: true,
     upgrade: false,
@@ -17,9 +17,8 @@ const App = () => {
   const [state, setState] = useState([]);
 
   const receiveMessage = () => {
-    socket.on('msgToClient', ahmet => {
-      console.log('ahmet', ahmet);
-      setState(ahmet);
+    socket.on('msgToClient', message => {
+      setState(message);
     });
   };
 
@@ -40,7 +39,9 @@ const App = () => {
     <SafeAreaView>
       <View>
         {state.map((item, index) => (
-          <Text key={index}>{item}</Text>
+          <Text key={index} style={{textAlign: 'center', padding: 5}}>
+            {item}
+          </Text>
         ))}
       </View>
       <Button title="Add new lamp" onPress={sendMessage} />
