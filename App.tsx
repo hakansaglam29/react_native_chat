@@ -39,6 +39,7 @@ const App = () => {
     <SafeAreaView>
       <View>
         {state.map((item, index) => (
+          // eslint-disable-next-line react-native/no-inline-styles
           <Text key={index} style={{textAlign: 'center', padding: 5}}>
             {item}
           </Text>
